@@ -125,12 +125,7 @@ def evaluate_model(trainX, trainy, testX, testy):
 	return accuracy
  
 # summarize scores
-def summarize_results(scores, params):
-	print(scores, params)
-	# summarize mean and standard deviation
-	for i in range(len(scores)):
-		m, s = mean(scores[i]), std(scores[i])
-		print('Param=%s: %.3f%% (+/-%.3f)' % (params[i], m, s))
-	# boxplot of scores
-	pyplot.boxplot(scores, labels=params)
-	pyplot.savefig('exp_cnn_standardize.png')
+def summarize_results(scores):
+	print(scores)
+	m, s = mean(scores), std(scores)
+	print('Accuracy: %.3f%% (+/-%.3f)' % (m, s))
